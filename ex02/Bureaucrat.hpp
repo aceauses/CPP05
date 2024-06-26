@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "Form.hpp"
-class Form;
+#include "AForm.hpp"
+class AForm;
 
 class Bureaucrat
 {
@@ -20,7 +20,8 @@ public:
 	~Bureaucrat();
 	int getGrade() const;
 	const std::string getName() const;
-	void signForm(Form &form);
+	void signForm(AForm &form);
+	void execute(Bureaucrat const &executor) const;
 	class GradeTooHighException : public std::exception
 	{
 	public:

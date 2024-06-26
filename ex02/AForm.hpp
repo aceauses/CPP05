@@ -4,7 +4,7 @@
 #include "Bureaucrat.hpp"
 class Bureaucrat;
 
-class Form
+class AForm
 {
 private:
 	/* data */
@@ -14,15 +14,15 @@ private:
 	bool _isSigned;
 
 public:
-	Form();
-	Form(const std::string name, int signGrade, int executeGrade);
-	Form(const Form &obj);
-	~Form();
+	AForm();
+	AForm(const std::string name, int signGrade, int executeGrade);
+	AForm(const AForm &obj);
+	~AForm();
 	void beSigned(Bureaucrat &bureaucrat);
 	const std::string getName() const;
 	int getSignGrade() const;
 	int getExecuteGrade() const;
-	bool getIsSigned() const;
+	virtual bool getIsSigned() const = 0;
 	class GradeTooHighException : public std::exception
 	{
 	public:
@@ -41,4 +41,4 @@ public:
 	};
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &obj);
+std::ostream &operator<<(std::ostream &out, const AForm &obj);

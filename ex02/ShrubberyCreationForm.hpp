@@ -1,24 +1,22 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
 class ShrubberyCreationForm
 {
 
-	public:
+public:
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(ShrubberyCreationForm const &src);
+	~ShrubberyCreationForm();
 
-		ShrubberyCreationForm();
-		ShrubberyCreationForm( ShrubberyCreationForm const & src );
-		~ShrubberyCreationForm();
+	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
 
-		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
-
-	private:
-
+private:
 };
 
-std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
+std::ostream &operator<<(std::ostream &o, ShrubberyCreationForm const &i);
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */
