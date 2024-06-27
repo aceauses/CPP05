@@ -1,22 +1,20 @@
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#pragma once
 
-#include <iostream>
+#include "AForm.hpp"
 #include <string>
 
-class ShrubberyCreationForm
-{
+class ShrubberyCreationForm : public AForm {
 
 public:
 	ShrubberyCreationForm();
-	ShrubberyCreationForm(ShrubberyCreationForm const &src);
+	ShrubberyCreationForm(std::string const& target);
+	ShrubberyCreationForm(ShrubberyCreationForm const& src);
 	~ShrubberyCreationForm();
 
-	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
+	ShrubberyCreationForm&
+	operator=(ShrubberyCreationForm const& rhs);
 
 private:
+	std::string _target;
+	void        executeAction() const;
 };
-
-std::ostream &operator<<(std::ostream &o, ShrubberyCreationForm const &i);
-
-#endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

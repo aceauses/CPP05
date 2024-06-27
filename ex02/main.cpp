@@ -1,51 +1,44 @@
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #define GRADE_MIN 150
 #define GRADE_MAX 1
 
-int main()
-{
-	try
-	{
-		Form f1("Form1", GRADE_MIN, GRADE_MIN);
-		Form f2("Form2", 150, 130);
-		std::cout << f1 << std::endl;
-		std::cout << f2 << std::endl;
-		Bureaucrat b1("Bureaucrat1", GRADE_MIN);
-		Bureaucrat b2("Bureaucrat2", 100);
-		b1.signForm(f1);
-		b2.signForm(f2);
-		std::cout << f1 << std::endl;
-		std::cout << f2 << std::endl;
-	}
-	catch (Form::GradeTooHighException &e)
-	{
+int main() {
+	// A basic test for the ShrubberyCreationForm
+	try {
+		Bureaucrat            b("Bureaucrat", 137);
+		ShrubberyCreationForm s("John");
+		b.signForm(s);
+		b.executeForm(s);
+	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-	catch (Form::GradeTooLowException &e)
-	{
+	std::cout << "----------------------------------------"
+			  << std::endl;
+	// A basic test for PresidentialPardonForm
+	try {
+		Bureaucrat             b("Bureaucrat", 5);
+		PresidentialPardonForm p("Alex");
+		b.signForm(p);
+		b.executeForm(p);
+	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-	try
-	{
-		std::cout << "---------------------" << std::endl;
-		Form f1("Form1", GRADE_MIN, GRADE_MIN);
-		Form f2("Form2", 140, 130);
-		std::cout << f1 << std::endl;
-		std::cout << f2 << std::endl;
-		Bureaucrat b1("Bureaucrat1", GRADE_MIN);
-		Bureaucrat b2("Bureaucrat2", 150);
-		b1.signForm(f1);
-		b2.signForm(f2);
-		std::cout << f1 << std::endl;
-		std::cout << f2 << std::endl;
-	}
-	catch (Form::GradeTooHighException &e)
-	{
+	std::cout << "----------------------------------------"
+			  << std::endl;
+	// A basic test for RobotomyRequestForm
+	try {
+		Bureaucrat          b("Bureaucrat", 45);
+		RobotomyRequestForm r("George");
+		b.signForm(r);
+		b.executeForm(r);
+	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
-	catch (Form::GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << "----------------------------------------"
+			  << std::endl;
 	return 0;
 }

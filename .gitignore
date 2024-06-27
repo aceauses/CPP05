@@ -1,1 +1,7 @@
 .vscode
+build
+.dist
+.cache
+CMakeLists.txt
+.clang-tidy
+.clang-format
